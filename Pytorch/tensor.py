@@ -45,7 +45,7 @@ r2 = torch.rand(3, 2)
 #r3 = r1 + r2 # Not allowed because the shapes are not the same
 
 # different types of operations you can do with tensors:
-r = torch.rand(2,2) - 0.5 * 2 # values between -1 and 1
+r = (torch.rand(2,2) - 0.5) * 2 # values between -1 and 1
 print(r)
 
 # common mathematical operations are supported:
