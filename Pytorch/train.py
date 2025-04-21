@@ -180,7 +180,6 @@ if __name__ == "__main__":
     """
 
     # FOR DEPLOYMENT:
-    
     # Compile the model code to a static representation
     my_script_module = torch.jit.script(net)
 
