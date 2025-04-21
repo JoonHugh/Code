@@ -47,3 +47,22 @@ r2 = torch.rand(3, 2)
 # different types of operations you can do with tensors:
 r = torch.rand(2,2) - 0.5 * 2 # values between -1 and 1
 print(r)
+
+# common mathematical operations are supported:
+print("\nAbsolute value of r:")
+print(torch.abs(r))
+
+print("\nDeterminant of r:")
+print(torch.det(r))
+
+print("\nSingular value decomposition of r:")
+print(torch.svd(r))
+
+print("\nAverage and standard deviation of r:")
+print(torch.std_mean(r)) # std, mean
+
+print("\nMaximum value of r:")
+print(torch.max(r))
+
+
+
