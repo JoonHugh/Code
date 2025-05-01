@@ -246,6 +246,96 @@ To fix the tensor shape issue, we can manipulate the shape of one of our tensors
 Transpose switchs the axes or dimensions of a given tensors
 """
 
-tensor_B = tensor_B.T
-print("NOW mm the two:", torch.mm(tensor_A, tensor_B))
+print("NOW mm the two:", torch.mm(tensor_A, tensor_B.T))
+print("Is this different?", torch.mm(tensor_A.T, tensor_B))
+
+"""
+Finding the min, max, mean, sum, etc (tensor aggregation)
+"""
+
+x = torch.arange(0, 101, 10)
+print("x", x)
+
+print("min:", torch.min(x))
+print("max:", torch.max(x))
+print("mean:", torch.mean(x.type(torch.float32))) # dtype error requires tensor of float32 datatype to work
+print("sum:", torch.sum(x))
+
+"""
+find positional min max or argmin or argmax (which index does the min and max values occur at?)
+
+Useful when you want to use the softmax function
+"""
+
+print("argmin:", torch.argmin(x)) # OR
+print(x.argmin())
+print("argmax:", torch.argmax(x)) # OR
+print(x.argmax())
+
+
+"""
+Reshaping, stacking, squeezing, and unsqueezing tensors
+Reshaping - fixes common shape mismatch error for tensors. Reshapes input tensor to defined shape
+View - Return a view of an input tensor of certain shape but keep the same memory ???
+Stacking - combine multiple tensors on top of each other (vstack) or side by stack (hstack)
+Squeeze - removes all `1` dimensions from a tensor
+Unsqueeze - adds a `1` dimension to a target tensor
+Permute - Return a view of the input with dimensions permuted (Swapped) in a certain way
+"""
+
+x = torch.arange(1, 11)
+print(x, x.shape)
+
+# add an extra dimension
+x_reshaped = x.reshape(5, 2)  # has to be compatible with original size
+print(x_reshaped)
+
+# Change the view
+z = x.view(1, 10)
+print(z, z.shape)
+
+# Changing z changes x (because a view of a tensor shares the same memory as the original)
+z[:, 0] = 5
+print(z, x)
+
+# Stack tensors on top of each other
+x_stacked = torch.stack([x, x, x, x], dim=0)
+print(x_stacked)
+x_stacked = torch.stack([x, x, x, x], dim=1)
+print(x_stacked)
+print("hstack", torch.hstack((x, x, x, x)))
+print("vstack:", torch.vstack((x, x, x, x)))
+
+
+# Squeeze and unsqueeze
+x_reshaped = x_reshaped.reshape(1, 1, 10)
+print("original x_reshaped:", x_reshaped)
+print("shape of original reshaped:", x_reshaped.shape)
+
+print("squeeze:", torch.squeeze(x_reshaped)) # removes all single dimensions from a target tensor
+print("shape of squeezed:", torch.squeeze(x_reshaped).shape)
+
+"""
+torch.unsqueeze - adds a single dimension to a target tensor at a specific dimension
+"""
+
+print(x_reshaped.unsqueeze(dim=3))
+print(x_reshaped.unsqueeze(dim=3).shape)
+
+
+"""
+torch.permute - rearranges the dimensions of a target tensor in a specified order
+"""
+
+print("permuted:", torch.permute(x_reshaped, (2, 1, 0))) # rearrange dimensions
+x_original = torch.rand(size=(224, 224, 3)) # height, width, color channels
+print("x_original", x_original, x_original.shape)
+
+# permute the original tensor to rearrange the axis (or dim) order
+x_permuted = x_original.permute(2, 0, 1) # color, height, width
+print("x_permuted:", x_permuted, x_permuted.shape)
+
+x_original[0, 0, 0] = 99999
+print(x_permuted) # They share memory with the tensor. Same as view. Same value gets copied to x_permuted
+
 
