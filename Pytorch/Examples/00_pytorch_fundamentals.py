@@ -234,43 +234,43 @@ tensor_A = torch.tensor([[1, 2],
 tensor_B = torch.tensor([[7, 10],
                          [8, 11],
                          [9, 12]])
+if DEBUG:
+    print("shape of tensor_A", tensor_A.shape)
+    print("shape of tensor_B", tensor_B.shape)
+    #print("tensor_A and tensor_b matmul:", torch.mm(tensor_A, tensor_B)) # torch.mm is the same as torch.matmul (it's an alais for matmul)
 
-print("shape of tensor_A", tensor_A.shape)
-print("shape of tensor_B", tensor_B.shape)
-#print("tensor_A and tensor_b matmul:", torch.mm(tensor_A, tensor_B)) # torch.mm is the same as torch.matmul (it's an alais for matmul)
+    # reshapeing the tensors
+    """
+    To fix the tensor shape issue, we can manipulate the shape of one of our tensors using transpose
 
-# reshapeing the tensors
-"""
-To fix the tensor shape issue, we can manipulate the shape of one of our tensors using transpose
+    Transpose switchs the axes or dimensions of a given tensors
+    """
 
-Transpose switchs the axes or dimensions of a given tensors
-"""
+    print("NOW mm the two:", torch.mm(tensor_A, tensor_B.T))
+    print("Is this different?", torch.mm(tensor_A.T, tensor_B))
 
-print("NOW mm the two:", torch.mm(tensor_A, tensor_B.T))
-print("Is this different?", torch.mm(tensor_A.T, tensor_B))
+    """
+    Finding the min, max, mean, sum, etc (tensor aggregation)
+    """
 
-"""
-Finding the min, max, mean, sum, etc (tensor aggregation)
-"""
+    x = torch.arange(0, 101, 10)
+    print("x", x)
 
-x = torch.arange(0, 101, 10)
-print("x", x)
+    print("min:", torch.min(x))
+    print("max:", torch.max(x))
+    print("mean:", torch.mean(x.type(torch.float32))) # dtype error requires tensor of float32 datatype to work
+    print("sum:", torch.sum(x))
 
-print("min:", torch.min(x))
-print("max:", torch.max(x))
-print("mean:", torch.mean(x.type(torch.float32))) # dtype error requires tensor of float32 datatype to work
-print("sum:", torch.sum(x))
+    """
+    find positional min max or argmin or argmax (which index does the min and max values occur at?)
 
-"""
-find positional min max or argmin or argmax (which index does the min and max values occur at?)
+    Useful when you want to use the softmax function
+    """
 
-Useful when you want to use the softmax function
-"""
-
-print("argmin:", torch.argmin(x)) # OR
-print(x.argmin())
-print("argmax:", torch.argmax(x)) # OR
-print(x.argmax())
+    print("argmin:", torch.argmin(x)) # OR
+    print(x.argmin())
+    print("argmax:", torch.argmax(x)) # OR
+    print(x.argmax())
 
 
 """
@@ -282,60 +282,185 @@ Squeeze - removes all `1` dimensions from a tensor
 Unsqueeze - adds a `1` dimension to a target tensor
 Permute - Return a view of the input with dimensions permuted (Swapped) in a certain way
 """
+if DEBUG:
+    x = torch.arange(1, 11)
+    print(x, x.shape)
 
-x = torch.arange(1, 11)
-print(x, x.shape)
+    # add an extra dimension
+    x_reshaped = x.reshape(5, 2)  # has to be compatible with original size
+    print(x_reshaped)
 
-# add an extra dimension
-x_reshaped = x.reshape(5, 2)  # has to be compatible with original size
-print(x_reshaped)
+    # Change the view
+    z = x.view(1, 10)
+    print(z, z.shape)
 
-# Change the view
-z = x.view(1, 10)
-print(z, z.shape)
-
-# Changing z changes x (because a view of a tensor shares the same memory as the original)
-z[:, 0] = 5
-print(z, x)
+    # Changing z changes x (because a view of a tensor shares the same memory as the original)
+    z[:, 0] = 5
+    print(z, x)
 
 # Stack tensors on top of each other
-x_stacked = torch.stack([x, x, x, x], dim=0)
-print(x_stacked)
-x_stacked = torch.stack([x, x, x, x], dim=1)
-print(x_stacked)
-print("hstack", torch.hstack((x, x, x, x)))
-print("vstack:", torch.vstack((x, x, x, x)))
+if DEBUG:
+    x_stacked = torch.stack([x, x, x, x], dim=0)
+    print(x_stacked)
+    x_stacked = torch.stack([x, x, x, x], dim=1)
+    print(x_stacked)
+    print("hstack", torch.hstack((x, x, x, x)))
+    print("vstack:", torch.vstack((x, x, x, x)))
 
 
-# Squeeze and unsqueeze
-x_reshaped = x_reshaped.reshape(1, 1, 10)
-print("original x_reshaped:", x_reshaped)
-print("shape of original reshaped:", x_reshaped.shape)
+    # Squeeze and unsqueeze
+    x_reshaped = x_reshaped.reshape(1, 1, 10)
+if DEBUG:
 
-print("squeeze:", torch.squeeze(x_reshaped)) # removes all single dimensions from a target tensor
-print("shape of squeezed:", torch.squeeze(x_reshaped).shape)
+    print("original x_reshaped:", x_reshaped)
+    print("shape of original reshaped:", x_reshaped.shape)
+
+    print("squeeze:", torch.squeeze(x_reshaped)) # removes all single dimensions from a target tensor
+    print("shape of squeezed:", torch.squeeze(x_reshaped).shape)
 
 """
 torch.unsqueeze - adds a single dimension to a target tensor at a specific dimension
 """
 
-print(x_reshaped.unsqueeze(dim=3))
-print(x_reshaped.unsqueeze(dim=3).shape)
+if DEBUG:
+    print(x_reshaped.unsqueeze(dim=3))
+    print(x_reshaped.unsqueeze(dim=3).shape)
 
 
 """
 torch.permute - rearranges the dimensions of a target tensor in a specified order
 """
 
-print("permuted:", torch.permute(x_reshaped, (2, 1, 0))) # rearrange dimensions
+if DEBUG:
+    print("permuted:", torch.permute(x_reshaped, (2, 1, 0))) # rearrange dimensions
 x_original = torch.rand(size=(224, 224, 3)) # height, width, color channels
-print("x_original", x_original, x_original.shape)
+if DEBUG:
+    print("x_original", x_original, x_original.shape)
 
 # permute the original tensor to rearrange the axis (or dim) order
 x_permuted = x_original.permute(2, 0, 1) # color, height, width
-print("x_permuted:", x_permuted, x_permuted.shape)
+if DEBUG:
+    print("x_permuted:", x_permuted, x_permuted.shape)
 
 x_original[0, 0, 0] = 99999
-print(x_permuted) # They share memory with the tensor. Same as view. Same value gets copied to x_permuted
+if DEBUG:
+    print("x_original after permuting:", x_original[0, 0, 0])
+    print("x_permuted after permuting:", x_permuted[0, 0, 0]) # They share memory with the tensor. Same as view. Same value gets copied to x_permuted
 
+
+
+# Indexing (selecting data from tensors)
+"""
+Indexing with PyTorch is similar to indexing with NumPy
+"""
+if DEBUG:
+    # Creating a tensor
+    x = torch.arange(1, 10).reshape(1, 3, 3)
+    print("x:", x, x.shape)
+
+    """
+    Let's index on our new tensor
+    """
+    print("x[0]:", x[0], x.shape)
+    print("x[0][0]:", x[0][0])
+    print("x[0][0][2]", x[0][0][2])
+    print("9:", x[0][2][2])
+
+    # You can also use ":" to select "all" of a target dimension:
+    print(x[:, 0]) # ALL of the 0'th dimension but index 0
+
+    print(x[:, :, 1]) # All elements in 0th and 1st dimension, and only element at index 1 in 2nd dimension
+
+    # Get all values of the 0th dimension but only the 1 index value of the 1st and 2nd dimension
+    print(x[:, 1, 1])
+
+    # Get index 0 of 0th and 1st dimension and all values of 2nd dimension 
+    print(x[0, 0, :])
+
+    # Index on x to return 9
+    print(x[:, 2, 2]) 
+
+    print(x[:, :, 2]) # index on x to return 3, 6, 9
+
+## PyTorch rensors and NumPy
+"""
+NumPy  is a popular scientific Python numerical computing library
+
+Because of this, PyTorch has functionality to interact with it.
+
+* Data in NumPy array, want in PyTorch tensor -> "torch.from_numpy(ndarray) -> torch tensor
+* PyTorch tensor -> NumPy -> "torch.Tensor.numpy()"
+"""
+if DEBUG:
+    # NumPy array to Tensor
+    array = np.arange(1.0, 8.0)
+    print("array:", array)
+
+    torch_tensor = torch.from_numpy(array).type(torch.float32)
+    print("numpy to torch tensor:", torch_tensor, torch_tensor.dtype) # dtype = torch.float64 because numpy's default datatype is float64, but PyTorch's default datatype is float32
+    # Warning when converting from numpy -> PyTorch, pytorch reflects numpy's default datatype of float64 unless specified otherwise.
+
+    # array = torch.Tensor.numpy(torch_tensor)
+    # print("Back to a numpy array:", array)
+    array += 1
+
+    # What happens if we change the value of an array? What will this do to the tensor?
+
+    print("array + 1", array)
+    print("tensor", torch_tensor)
+
+
+
+    tensor_of_ones = torch.ones(7)
+    print(tensor_of_ones)
+    numpy_tensor = tensor_of_ones.numpy()
+    print("ones tensor:", tensor_of_ones.dtype)
+    print("numpy tensor:", numpy_tensor, numpy_tensor.dtype) # float 32 because you switched from tensor -> numpy
+
+    # Change the tensor, what happens to numpy_tensor?
+    tensor_of_ones += 1
+    print("torch tensor:", tensor_of_ones)
+    print("array:", numpy_tensor)
+
+
+
+# Reproducability Trying to take the randomness out of random
+
+"""
+In short, how a neural network learns:
+
+Start with random nums -> tensor operations -> update random numbers to try and make 
+them better representations of the data -> again -> again -> again...
+
+However, when you're trying to reproduce, you need to get rid of the randomness
+"""
+
+print(torch.rand(3, 3))
+
+
+"""
+To reduce the randomness in NN and PyTorch, comes the concept of a random seed
+
+Essentially what the random seed does is flavor the randomness.
+Random is not true randomness. Computers are fundamentally deterministic. They run the same steps over and over again. 
+"""
+
+random_tensor_A = torch.rand(5, 5)
+random_tensor_B = torch.rand(5, 5)
+print(random_tensor_A)
+print(random_tensor_B)
+print(random_tensor_A == random_tensor_B)
+
+# Let's make some random but reproducable tensors
+# Set the random set
+RANDOM_SEED = 42
+torch.manual_seed(RANDOM_SEED)
+random_tensor_C = torch.rand(10, 10)
+
+torch.manual_seed(RANDOM_SEED)
+random_tensor_D = torch.rand(10, 10)
+
+print(random_tensor_C)
+print(random_tensor_D)
+print(random_tensor_C == random_tensor_D)
 
