@@ -443,24 +443,78 @@ To reduce the randomness in NN and PyTorch, comes the concept of a random seed
 
 Essentially what the random seed does is flavor the randomness.
 Random is not true randomness. Computers are fundamentally deterministic. They run the same steps over and over again. 
+""" 
+if DEBUG:
+    random_tensor_A = torch.rand(5, 5)
+    random_tensor_B = torch.rand(5, 5)
+    print(random_tensor_A)
+    print(random_tensor_B)
+    print(random_tensor_A == random_tensor_B)
+
+    # Let's make some random but reproducable tensors
+    # Set the random set
+    RANDOM_SEED = 42
+    torch.manual_seed(RANDOM_SEED)
+    random_tensor_C = torch.rand(10, 10)
+
+    torch.manual_seed(RANDOM_SEED) # Need to call another time if you want to call the random method again
+    random_tensor_D = torch.rand(10, 10)
+
+    print(random_tensor_C)
+    print(random_tensor_D)
+    print(random_tensor_C == random_tensor_D)
+
+# Running Tensors and PyTorch objects on the GPUs (and making faster computations)
+
 """
+GPUs = faster computation on numbers, tahnks to CUDE + NVIDIA hardware 
++ PyTorch working behind the scenes to make everything good
 
-random_tensor_A = torch.rand(5, 5)
-random_tensor_B = torch.rand(5, 5)
-print(random_tensor_A)
-print(random_tensor_B)
-print(random_tensor_A == random_tensor_B)
+Getting a GPU:
+* Use Google Collab
+* Just use your own lmao  
+* Use cloud computing -GCP, AWS, Azure,
+  these services allow you to rent computers on the cloud and access them
+"""
+if DEBUG:
+    # Check for GPU access with PyTorch
+    print(torch.cuda.is_available()) # False because I'm using MacOS
 
-# Let's make some random but reproducable tensors
-# Set the random set
-RANDOM_SEED = 42
-torch.manual_seed(RANDOM_SEED)
-random_tensor_C = torch.rand(10, 10)
 
-torch.manual_seed(RANDOM_SEED)
-random_tensor_D = torch.rand(10, 10)
+    # Setup device agnostic code (might not always have acccess to GPU, but if there is access, you want to use it)
+    device = "cuda" if torch.cuda.is_available() else "cpu" # Use the GPU is available, otherwise, use the CPU
 
-print(random_tensor_C)
-print(random_tensor_D)
-print(random_tensor_C == random_tensor_D)
+    # Count the number of GPUs or devices
+    print(torch.cuda.device_count())
+
+    """
+    For PyTorch, since it's capable of running compute on the CPU or GPU, it's best practice to
+    setup device agnostic code
+
+    E.g. run on GPU if available, else default to CPU.
+    """
+
+    # Putting tensors (and models) on the GPU
+    """
+    The reason we want our tensorsmodels on the GPU is because using a GPU results in faster computation
+    """
+
+    tensor = torch.tensor([1, 2, 3], device=device) # CPU because GPU not available
+
+    # Tensor not on GPU
+    print(tensor, tensor.device)
+
+    # Move tensor to GPU (if available)
+    tensor_on_gpu = tensor.to(device) # whatever device we have access to whether it's a cpu or gpu, it will go to available
+    print(tensor_on_gpu) # on CPU because not available "tensor([1, 2, 3], device''cude:0')"
+
+    # NumPy ONLY works with CPU
+    # Moving tensors back to CPU
+    tensor_on_gpu.numpy() # doesn't work because tensor is on GPU can't transform to numpy. HOWEVER  I have no GPU, it works fine
+    
+    tensor_on_cpu = tensor_on_gpu.cpu().numpy()
+    print("tensor_on_cpu", tensor_on_cpu)
+
+
+    device2 = "cuda" if torch.cuda.is_available() else "cpu"
 
