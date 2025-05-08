@@ -518,3 +518,7 @@ if DEBUG:
 
     device2 = "cuda" if torch.cuda.is_available() else "cpu"
 
+
+
+# Exercises & Extra-curriculum
+
