@@ -446,3 +446,163 @@ Let's go back through the steps above and see it all in one place
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"using device: {device}")
 
+# Create some data using the linear regression formula of y = weight * X + bias
+weight = 0.2
+bias = 0.1
+
+# Create range values
+start = 0
+end = 1
+stepsize = 0.02
+
+X = torch.arange(start, end, stepsize, device=device).unsqueeze(dim=1) # features, without unsqueeze, errors will pop up
+y = weight * X + bias # labels
+
+print("X:", X[:10])
+print("y:", y[:10])
+
+train_split = int(0.8 * len(X))
+X_train, y_train = X[:train_split], y[:train_split] # 80%
+
+X_test, y_test = X[train_split:], y[train_split:] # 20%
+
+print(len(X_train), len(y_train), len(X_test), len(y_test))
+
+# plot the data
+# Note: if you don't have the plot_predictions() function loaded, this will error
+plot_predictions(X_train, y_train, X_test, y_test)
+
+# 6.2 Building a PyTorch Linear model
+# Create a linear model by subclassing nn.Module
+
+"""
+swap creating a random weight and random bias with creating a linear layer and having that
+define our weights and bias
+
+We can also get rid of the formula y = weight * X + bias and replace it with self.linear_layer(x).
+Pass it through the linear layer and have it compute some predefined forward function
+"""
+    
+class LinearRegressionModelV2(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+        # Use nn.Linear() for creating the model parameters / also called: linear transform, probing layer, fully connected layer, dense layer
+        self.linear_layer = nn.Linear(in_features=1,
+                                      out_features=1) # one feature of x map to one label of y
+        
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.linear_layer(x) # perform linear regression formula behind the scenes
+    
+# Set the manual seed
+torch.manual_seed(42)
+model_1 = LinearRegressionModelV2()
+print(model_1, model_1.state_dict())
+
+# Check the model current device
+print(next(model_1.parameters()).device)
+
+# Set the model to use the target device
+model_1.to(device)
+print(next(model_1.parameters()).device)
+
+# 6.3 Training 
+"""
+For training we need 
+a loss function 
+optimizer
+training loop
+testing loop
+"""
+
+# Setup loss function
+loss_fn = nn.L1Loss() # same as MAE
+
+# setup our optimizer
+optimizer = torch.optim.SGD(params=model_1.parameters(),
+                            lr=0.01) # passing in model parameters, and the learning rate into your optimizer
+
+# Let's write a training loop
+torch.manual_seed(42)
+
+epochs = 2000
+
+# Put data on the target device (device agnostic code for data)
+X_train = X_train.to(device)
+y_train = y_train.to(device)
+X_test = X_test.to(device)
+y_test = y_test.to(device)
+
+for epoch in range(epochs):
+
+    model_1.train()
+
+    # 1. do forward pass
+    y_pred = model_1(X_train)
+
+    # 2. Calculate the loss
+    loss = loss_fn(y_pred, y_train)
+
+    # 3. Optimizer zewro grad
+    optimizer.zero_grad()
+
+    # 4. perform backpropogation
+    loss.backward()
+
+    # 5. Calculate the gradient with respect to each parameter in the model
+    optimizer.step()
+
+    #################
+    # Testing
+    model_1.eval()
+    
+    with torch.inference_mode():
+        test_pred = model_1(X_test)
+
+        test_loss = loss_fn(test_pred, y_test)
+
+    # Print out what's happening
+    if epoch % 10 == 0:
+        print(f"Epoch {epoch} | Loss: {loss} | Test_loss: {test_loss}")
+        print(f"State_dict:, {model_1.state_dict()}")
+
+
+# 6.4 Making and evaluating predicitons
+# Turn model into evaluation mode (everytime you want to evalute or make predictions)
+model_1.eval()
+
+# Make predictions on the test data
+with torch.inference_mode():
+    y_preds = model_1(X_test).cpu()
+
+
+print("y_preds:", y_preds)
+plot_predictions(predictions=y_preds) # Different because you changed the weight to = 0.2 and bias to 0.1
+
+# 6.5 Saving and loading a trained model
+MODEL_NAME = "01_pytorch_workflow_model_1.pth"
+MODEL_SAVE_PATH = MODEL_PATH / MODEL_NAME
+
+print(f"Saving model to {MODEL_SAVE_PATH}")
+torch.save(obj=model_1.state_dict(), f=MODEL_SAVE_PATH)
+print("model_1.state_dict()", model_1.state_dict())
+
+# loading model into new model
+
+# Create a new instance of LRMV2
+loaded_model_1 = LinearRegressionModelV2()
+# load state dict of saved model
+loaded_model_1.load_state_dict(torch.load(f=MODEL_SAVE_PATH)) 
+
+# Send this to the device you want to work with, but in my case since I have a Mac, I only have cpu
+loaded_model_1.to(device)
+print("loaded_model_1.state_dict():", loaded_model_1.state_dict())
+
+
+# Evaluate the loaded model
+loaded_model_1.eval()
+
+with torch.inference_mode():
+    loaded_model_1_preds = loaded_model_1(X_test)
+
+print(y_preds == loaded_model_1_preds)
