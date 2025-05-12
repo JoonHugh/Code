@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Blog</title>
+        <meta name="description" content="Awesome blog by Joon Hugh">
+        <meta name="keywords" content="web design blog, web dev blog, hugh-dev, blog">
+        <style type=""text/css">
+            #main-header{
+                text-align:center;
+                background-color:black;
+                color:white;
+                padding:10px
+            }
+
+            #main-footer{
+                text-align:center;
+                font-size:18px
+            }
+        </style>
+    </head>
+    <body>
+        <header id="main-header">
+            <h1>Joon's Blog</h1>
+        </header> 
+        <section>
+            <article class="post">
+                 <h3>Blog Post One</h3>
+                 <small>Posted by Joon Hugh on May 12, 2025</small>
+                 <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa similique voluptates vero ducimus tenetur, cupiditate velit nulla voluptate corporis nemo officia adipisci natus impedit neque recusandae sit quo quam eveniet.
+                 </p>
+                 <a href="post.html">Read More</a>
+                 <br>
+                 <a href="index.html">First HTML File Written by Joon Hugh</a>
+            </article>
+            <article class="post">
+                <h3>Blog Post Two</h3>
+                <small>Posted by Joon Hugh on May 13, 2025</small>
+                <p>
+                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa similique voluptates vero ducimus tenetur, cupiditate velit nulla voluptate corporis nemo officia adipisci natus impedit neque recusandae sit quo quam eveniet.
+                </p>
+                <a href="post2.html">Read More</a>
+            </article>
+           <article class="post">
+                <h3>Blog Post Three</h3>
+                <small>Posted by Joon Hugh on May 16, 2025</small>
+                <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa similique voluptates vero ducimus tenetur, cupiditate velit nulla voluptate corporis nemo officia adipisci natus impedit neque recusandae sit quo quam eveniet.
+                </p>
+                <a href="post3.html">Read More</a>
+            </article>
+            <article class="post">
+                <h3>Blog Post Four</h3>
+                <small>Posted by Joon Hugh on May 17, 2025</small>
+                <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa similique voluptates vero ducimus tenetur, cupiditate velit nulla voluptate corporis nemo officia adipisci natus impedit neque recusandae sit quo quam eveniet.
+                </p>
+                <a href="post4.html">Read More</a>
+            </article>
+        </section>
+
+        <aside>
+            <h3>Categories</h3>
+            <nav>
+                <ul>
+                    <li><a href="#">Category 1</a></li>
+                    <li><a href="#">Category 2</a></li>
+                    <li><a href="#">Category 3</a></li>
+                    <li><a href="#">Category 4</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <footer id="main-footer">
+            <p>Copright &copy; Hugh-Dev 2024 | <a href="privacy-policy.hrml" target="_blank">Privacy Policy</a></p>
+        </footer>
+    </body>
+</html>
+
+<!-- Notes 
+
+<meta> tag gives you metadata so Google will use to better find your website or SEO. 
+    name="metadataType" - literal. 
+    There a couple metadata types:
+    1. description: used when describing your website
+    2. keywords: used to give google keywords to better find your website
+ 
+semantic tags:
+header: have different headers. Structually, you want to have your header at the top.
+section: The main area of the page. About page - paragraphs about company, blog - article tags
+article: In heach article, for this example, we want to have different blog posts
+aside: Should float it to the side of the page in CSS.
+nav: when you have some form of navigation 
+footer: a footer tag, copyright, privacy polify, trademark, etc. 
+
+other tags:
+<small> - used to create dates or small content. Small tags will make the actual text smaller.
+
+Attributes/Fields:
+class="className" - I guess different classes of articles?
+href="post.html" - A link to where you want to go
+id="typeOfHeader" - Define what kind of header this is. Some people use headers differently.
+
+Other:
+&copy; - copyright symbol
+
+
+<style> tag is some CSS. Just ignore for now, will get into it in the next video.
+    In style tag, you can access the id of different headers, footers, other semantic tags and then
+    change how they look using some CSS
+-->
