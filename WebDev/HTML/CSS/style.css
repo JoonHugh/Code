@@ -1,0 +1,177 @@
+/* This targets EVERY element in the file 
+*{
+    margin:0;
+    padding:0;
+} */
+
+body{
+    background-color:#f4f4f4;
+    color:#555555;
+
+    /*
+    font-family: Arial, Helvetica, sans-serif; /* web safe fonts: don't need to import any special font 
+    font-size:16px; /* 16 is default 
+    font-weight:normal; /* Specific numerical values, but can also say "bold" */
+
+    /* A shorter way to do above */
+    font: normal 16px Arial, Helvetica, sans-serif;
+
+    line-height: 1.6em; /* em a unit in css. Can also make pixels.  Usually use em for line heights */
+
+    margin:0 
+
+}
+
+a{
+    text-decoration: none;
+    color:#000;
+
+}
+
+a:hover{
+    color:red
+}
+
+a:active{
+    color:green
+}
+
+
+.container{
+    /* width:960px; /* NOT RESPONSIVE, therefore set it to a percentage instead */
+    width:80%;
+    margin:auto
+}
+
+.button {
+    background-color:#333;
+    color:#fff;
+    padding:10px 15px;
+    border:none;
+}
+
+.clr {
+    clear:both;
+}
+
+.button:hover {
+    background:red;
+    color:white;
+}
+
+/* to target a specific class, you need to do .className */ 
+.box-1{
+    background-color:#333; /* same as #333333 */
+    color:#fff;
+
+    /*
+    border-right: 5px red solid;
+    border-left: 5px red solid;
+    border-top: 5px red solid;
+    border-bottom: 5px red solid;
+
+    longer way, below is shorter
+    */
+    
+    border: 5px red solid;
+
+    border-width: 3px;
+    border-bottom-width: 10px;
+    border-top-style: dotted;
+
+    /*
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    same as below
+    */
+    
+    padding: 20px;
+
+    margin-top:20px;
+    margin:20px 0px;
+}
+
+/* target any h1 within the class box-1 */
+.box-1 h1{
+    font-family: Tahoma;
+    font-weight:800;
+    font-style:italic;
+    text-decoration:underline;
+    text-transform:uppercase;
+    letter-spacing: 0.2em;
+    word-spacing: 1em;
+}
+
+.box-2{
+    border:3px dotted #ccc;
+    padding:20px;
+    margin:20px 0px;
+}
+
+.categories{
+    border:1px #ccc solid;
+    padding:10px;
+    border-radius:15px;
+
+}
+
+.categories h2{
+    text-align: center;
+}
+
+.categories ul{
+    padding-left:20px;
+    list-style:square;
+    list-style:none;
+}
+
+.categories li{
+    padding-bottom:6px;
+    border-bottom: dotted 1px #333;
+    list-style-image: url('../Images/check.png');
+}
+
+.my-form{
+    padding:20px
+}
+
+
+.my-form form-group{
+    padding-bottom: 15px;
+}
+
+.my-form label{
+    display:block /* New line for label and go across entire line */
+}
+
+.my-form input[type="text"], input[type="email"], .my-form textarea{
+    padding:8px;
+    width:100%;
+}
+
+.block {
+    float:left;
+    width:33.3%;
+    border:1px solid #ccc;
+    padding:10px;
+    box-sizing:border-box;
+}
+
+#main-block {
+    float:left;
+    width:70%;
+    padding:15px;
+    box-sizing:border-box;
+}
+
+#sidebar {
+    float:right;
+    width:30%;
+    background-color: #333;
+    color:#fff;
+    padding:15px;
+    box-sizing:border-box;
+}

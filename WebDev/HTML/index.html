@@ -1,270 +1,158 @@
-<!DOCTYPE html> <!-- Here always the first thing in the webpage. Tells browser what type of html -->
+<!DOCTYPE html>
 <html>
     <head>
-        <title>
-            HTML Cheat Sheet
-        </title>
+        <title>CSS Cheat Sheet</title>
+        <link rel="stylesheet" type="text/css" href="CSS/style.css"> <!-- rel: tells html file that it's a stylesheet -->
     </head>
     <body>
-        <a href="blog.html">Go to Joon's Blog!</a>
-        <hr>
-
-        <!-- Headings -->
-        <h1 title="My Company">Heading One</h1>
-        <h2>Heading Two</h2>
-        <h3>Heading Three</h3>
-        <h4>Heading Four</h4>
-        <h5>Heading Five</h5>
-        <h6>Heading Six</h6>
-        <!-- Paragraphs -->
-        <p>
-            <em> ipsum dolor sit, amet consectetur adipisicing elit</em>. Cupiditate obcaecati cum praesentium, <strong> odio rerum reiciendis ab dignissimos quisquam necessitatibus</strong>, quos repudiandae porro assumenda, adipisci quo maiores. Nemo, mollitia voluptatem!
-        </p>
-        <p>
-            Lorem ipsum dolor sit, <a href="http://google.com" target="_blank">amet consectetur</a> adipisicing elit. Cupiditate obcaecati cum praesentium, repellendus odio rerum reiciendis ab dignissimos quisquam necessitatibus, quos repudiandae porro assumenda, adipisci quo maiores. Nemo, mollitia voluptatem!
-        </p>
-
-        <!-- Lists -->
-
-        <ul>
-            <li>List Item 1</li>
-            <li>List Item 2</li>
-            <li>List Item 3</li>
-            <li>List Item 4</li>
-            <li>List Item 5</li>
-            <li>List Item 6</li>
-        </ul>
-        <ol>
-            <li>List Item 1</li>
-            <li>List Item 2</li>
-            <li>List Item 3</li>
-            <li>List Item 4</li>
-        </ol>
-
-        <!-- Tables -->
-         <table>
-            <thead>
-                <tr>
-                    <th>First</th>
-                    <th>Last</th>
-                    <th>Age</th>
-                    <th>City</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Joon</td>
-                    <td>Hugh</td>
-                    <td>21</td>
-                    <td>Seoul</td>
-                </tr>
-                <tr>
-                    <td>Armando</td>
-                    <td>Monreal</td>
-                    <td>25</td>
-                    <td>Gainseville</td>
-                </tr>
-                <tr>
-                    <td>Aditiya</td>
-                    <td>Patel</td>
-                    <td>22</td>
-                    <td>Buford</td>
-                </tr>
-            </tbody>
-         </table>
-
-         <br>
-         <hr>
-         <br>
-
-         <!-- Forms -->
-        <form action="process.php" method="POST">
-            <div>
-                <label>First Name</label>
-                <input type="text" name="firstName" placeholder="Enter First Name">
-            </div>
-            <br>
-            <div>
-                <label>Last Name</label>
-                <input type="text" name="lastName" placeholder="Enter Last Name">
-            </div>
-            <br>
-            <div>
-                <label>Email Address</label>
-                <input type="email" name="emailAddress" placeholder="Enter Email"> <!-- must be a valid email -->
-            </div>
-            <br>
-            <div>
-                <label>Message</label>
-                <textarea name="message" placeholder="Your Message"></textarea>
-            </div>
-            <br>
-            <div>
-                <label>Gender</label>
-                <select name="gender">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Female">Other</option>
-                </select>
-            </div>
-            <br>
-            <div>
-                <label>Age</label>
-                <input type="number" name="age" value="30">
-            </div>
-            <br>
-            <div>
-                <label>Birthday</label>
-                <input type="date" name="birthday">
-            </div>
-            <br>
-            <input type="submit" name="submit" value="Submit"> <!-- value = actual text of the button. Goes to process.php but doesn't actually exist -->
-        </form>
-        <br>
-
-        <!-- Button -->
-        <button click="Some Function">Click Me</button>
-        <br>
+        <div class="container">
+            <div class="box-1">
+                <h1>Hello World</h1>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe molestias expedita cumque tempore quam esse perferendis exercitationem laboriosam? Impedit architecto quidem voluptatem exercitationem dicta illum accusamus nam voluptatum et excepturi.
+                </p>
         
-        <!-- Image -->
-        <a href="Images/sample.png" target="_blank">
-            <img src="Images/sample.png" alt="My Sample Image" width="800">
-        </a>
-        <br>
-
-        <!-- Quotations -->
-        <blockquote cite="http://hugh-dev.com">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque eligendi porro aliquid ipsa ad quod velit itaque quis, dolorem corrupti atque repudiandae quaerat. Cumque debitis minima aliquid eum, recusandae voluptatum.
-        </blockquote>
-        <br>
-
-        <p>I honestly love <abbr title="Baskin Robbins">BR</abbr> so much I can't live without it!</p>
-        <br>
-
-        <p><cite>HTML Crash Course</cite> by Brad Teversy</p>
-        <br>
-
-        <img src="Images/semantic-tags.png" alt="Semantic Tags Image">
+                <img src="Images/web_safe_fonts.png" href="Images/web_safe_fonts.png" target="_blank">
+            </div>
+            <div class="box-2">
+                <h1>Goodbye World</h1>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe molestias expedita cumque tempore quam esse perferendis exercitationem laboriosam? Impedit architecto quidem voluptatem exercitationem dicta illum accusamus nam voluptatum et excepturi.
+                </p>
+                <a class="button" href="">Read More</a>
         
-        <div style="margin-top:500px"></div>
+            </div>
+            <div class="categories">
+                <h2>categories</h2>
+                <ul>
+                    <li><a href="#"">Category 1</a></li>
+                    <li><a href="#"">Category 2</a></li>
+                    <li><a href="#"">Category 3</a></li>
+                    <li><a href="#"">Category 4</a></li>
+                </ul>
+            </div>
+
+            <form class="my-form">
+                <div class="form-group">
+                    <label>Name: </label>
+                    <input type="text" placeholder="Name" name="name">
+                </div>
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input type="email" placeholder="Email" name="email">
+                </div>
+                <div class="form-group">
+                    <label>Message: </label>
+                    <textarea placeholder="Your Message" name="message"></textarea>
+                </div>
+                <input class="button" type="submit" value="Submit" name="">
+            </form>
+            <div class="block">
+                <h3>Heading</h3>
+                <p> HELLO WORLD Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta excepturi recusandae id eum, autem quisquam magni quam eos dolorum neque odio eligendi delectus esse nemo aliquam vero molestiae earum?
+                </p>
+            </div>
+            <div class="block">
+                <h3>Heading</h3>
+                <p>SECOND BLOCK Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta excepturi recusandae id eum, autem quisquam magni quam eos dolorum neque odio eligendi delectus esse nemo aliquam vero molestiae earum?
+                </p>
+            </div>
+            <div class="block">
+                <h3>Heading</h3>
+                <p>GOODBYE WORLD Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta excepturi recusandae id eum, autem quisquam magni quam eos dolorum neque odio eligendi delectus esse nemo aliquam vero molestiae earum?
+                </p>
+            </div>
+
+            <div class="clr"></div>
+
+            <div id="main-block">
+                <h3>Heading</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta excepturi recusandae id eum, autem quisquam magni quam eos dolorum neque odio eligendi delectus esse nemo aliquam vero molestiae earum?
+                </p>
+            </div>
+            <div id="sidebar">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta excepturi recusandae id eum, autem quisquam magni quam eos dolorum neque odio eligendi delectus esse nemo aliquam vero molestiae earum?
+                </p>
+            </div>
+        </div>
+        <div style="margin-top:500px;"></div>
     </body>
 </html>
 
-<!-- 
-Margin - the space outside the element's border
-Padding - The space inside of the element's border and content
-Border - Visible or Invisible line that surrounds the padding and content
+<!--
+What is CSS?
+* Cascading Styleshets
+* Stylesheet/Styling language
+* Used for website layout and design
+* Can be extended with Sass/Less
 
-<br> line break
-<hr> horizontal line 
+3 Methods for adding CSS
+* Inline CSS: Directly in the html element(NO!) Keep presentation, functionality, and style completely separate
+    <h1 style="color:red">Hello World</h1>
+* Internal CSS: Using <style> tags within a single document. Fattens up html file, and can't use it outside of the html file
+* External CSS: Linking an external .css file. Best, link file to whatever html file whenever.
 
-Inline Elements:
-- Don't start on a new line
-- Take only the necessary width
-<span>, <img>, 
-    <a> let's you do a hyperlink
-    <strong> bolds or can change in CSS
-    <em> emphasize. By default it's italicized. Once again, able to change in CSS
+a { background-color: yellow; } 
+selector | property | value | declaration end
+{ = declaration start
+} = declaration end
+: = property/value separator
+; = declaration separator
 
-Block Elements:
-- Start on a new line
-- Take full width avaialble
-<div>, <h1> - <h6>, <p>, <form>
+a = link. Doing this targets all links everywhere in the html file. To target a specific link,
+use classes or ids
 
-Tag Attributes:
-- Provide more information about a specific element
-    * all tags can have attribuets
-    * Provide info about an element
-    * Placed within the start tag
-    * Key/value pairs (id="someId")
-<tagname attributename="attribuetvalue"> content </tagname>
-href="" hyperlink that takes you where you want to go. The address or the html file
-target="_blank" opens a new tab 
+Colors In CSS
+* Color Names
+* HTML5 Color Names
+* Hexadecimal
+* RGB
+body{
+    color: red;
+    background: coral
+}
 
+h1 {
+    color: #00ff00;
+}
 
-Lists:
-2 Different kinds of lists. Each list item is going to have a <li> tag
-- Unordered lists <ul> - bullet points
-    (Usually used in website navigation (Nav Bars at the top of websites)) Just styled so elements float to the right
-- Ordered Lists <ol> - numbered list
+p {
+    color: rgb(0,0,225);
+}
 
+class vs id:
+There is really no difference, but you want to think of ids as something you're not going to put anywhere else. They're unique for instance, a Nav Bar. However, for class="box-1" you might use elsewhere. If you want to make some text red, you can make that into a class because you might use it somewhere else.
 
-Tables: 
-Only use tables for tabular data ONLY. DO NOT use it for your layout. Use CSS.
-1. Area for the head <thead> - where you put the features (name, email, age column)
-2. Area for the body <tbody> - the actual data
+margin: space around an element outside of border
+padding: space around an element inside of border
 
-<tr> - table row
-<th> - each heading must have a <th> tag
-<td> - actual data under the headings
+p{
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-right:10px;
+    margin-left:10px;
+}
 
-Fills in Top to Bottom, Left to Right 
+p{
+    margin: 5px 10px 5px 10px; // top, right, bottom, left
+}
 
+p{
+    margin: 5px 10px // if top and bottom are same and left and right are same
+}
 
-Forms:
-With HTML you can create the actual look of the form, 
-but you can't add functionality fo the form with HTML for example LOGIN form. 
-You need a programming language with functionality
+p{
+    margin: 5px // if all equal 
+}
 
-<form> tag
-    usually pairs with action="" attribuet
-    <form action=""> - submit the form to a certain page (for instance a php page)
-    
-    Also method attribute - 
-        * POST - Means we're making a POST request to the server
-        POST is used to add data to a database etc. Pretty secure 
-        * GET - See the data filled in in the URL (not really safe, used in search) things where you're
-        not actually adding data to a database server
-
-    <form action="process.php" method="POST"> 
-
-<label> Labels for specific boxes
-<input> Inputs for the specific boxes
-<textarea> text area space for specific boxes (can make bigger or smaller using the corner control)
-<select> a select drop down 
-    Attributes/Fields:
-        type="datatype" | type="text" for regular text | "email" to verify emails
-        | "number" integers (arrows to make number go up or down) | "date" Only be dates (date selector)
-        | "submit" for input submit button to submit your form
-        name="" | Used for serverside programming. How we would grab the value from this form 
-        value="optionName" | Used for option tag for drop down select. Can be used to preselect
-        placeholder="placeholderText" | Used for placeholder text for a form that disappears when you start typing 
-    
+SAME FOR PADDING
 
 
-Button:  in order for a button  to actually do anything, you need to use JavaScript
-<button>
-    click="someFunction"
-
-
-Image:
-The reason it knows where to look is because it's in the same folder as HTML.
-Usually yoou'll have a separate folder that's called images or img or something
-<img>
-    src="pathToImage"
-    alt="alternativeText" - text if your can't find your image
-    width
-    height 
-
-
-Quotations:
-1. Block quote - used for some kind of quote. Takes attribuet called cite (where it ocmes from)
-2. Abbreviate - underlines an abbreviated word and then when hovered over displays what it's abbreviating.
-3. Cite - italicize what is being cited
-
-Attributes:
-    cite="source" for blockquotes
-    title="World Wide Web" For abbreviaiton
-
-
-HTML5 Semantic Tags:
-A semantic element clearly describes its meaning to both the browser and the developer
-<header></header>
-<footer></footer>
-<aside></aside>
-<main></main>
-<article></article>
-<nav></nav>
-<section></section>
-<details></details>
+Positioning in CSS
+* Static - default, renders element in order of document flow
+* Relative - relative to its normal position, falls naturally, add properties like top left right bottom and push to where we want
+* Absolute - target whatever position we want inside of a relative element
+* Fixed - a fixed position to the browser window. Now matter how much we scroll, where we are in the page, it will always be in the same position
+* Initial - set the property to its default value
+* Inherit - will inherit whatever the property of parent element
 -->
