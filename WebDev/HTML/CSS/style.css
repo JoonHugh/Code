@@ -175,3 +175,53 @@ a:active{
     padding:15px;
     box-sizing:border-box;
 }
+
+.p-box{
+    width:800px;
+    height:500px;
+    border:1px solid #000;
+    margin-top:30px;
+    position:relative;
+    background-image:url("../Images/bg-image.jpg");
+    background-repeat: no-repeat; /* makes image not repeat */
+    background-position: 100px 200px; /* move the image with respect to the p-box */
+    background-position: center top; /* center horizontally and position at top */
+     
+}
+
+.p-box h1{
+    position:absolute;
+    top:100px; /* Coming 40 pixels from the top. It needs a parent element relative. */
+    left:200px;
+}
+
+.p-box h2{
+    position:absolute;
+    bottom:40px;
+    right:100px;
+}
+
+.fix-me {
+    position:fixed;
+    top:400px
+}
+
+.my-list li:first-child{
+    background:red;
+}
+
+.my-list li:last-child{
+    background:blue;
+}
+
+.my-list li:nth-child(5){
+    background:yellow;
+}
+
+.my-list li:nth-child(even){
+    background:green;
+}
+
+.my-list li:nth-child(odd){
+    background:red;
+}

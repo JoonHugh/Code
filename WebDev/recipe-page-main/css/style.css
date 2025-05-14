@@ -1,0 +1,161 @@
+@font-face {
+    font-family: outfit;
+    src: url(../assets/fonts/outfit/Outfit-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: young-serif;
+    src: url(../assets/fonts/young-serif/YoungSerif-Regular.ttf);
+}
+
+body{
+    font-family: outfit;
+    font-size: 16px;
+    color:hsl(30, 10%, 34%);
+    line-height: 1.9em;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+}
+
+.hr{
+    color:hsl(30, 18%, 87%);
+    margin:0px;
+    padding:0px;
+    opacity: 50%;
+}
+
+.img{
+    width:100%;
+    box-sizing: border-box;
+    padding:35px;
+    border-radius: 50px;
+}
+
+#title{
+    font-family: young-serif;
+    color:#333
+}
+
+.header{
+    font-family: young-serif;
+    font-weight: 400;
+    color:hsl(14, 45%, 36%);
+    margin:20px 20px 10px 0px;
+}
+
+#prep-header{
+    margin:0px;
+    margin-bottom:-10px;
+    padding:0;
+    color:hsl(332, 51%, 32%);
+}
+
+#preparation{
+    /*border: black solid 1px;*/
+    background-color: hsl(330, 100%, 98%);
+    border-radius: 15px;
+    padding: 20px;
+}
+#prep-list {
+    padding-left: 1.1em;
+    margin-bottom: -5px;
+}
+
+#prep-list li{
+    line-height: 1.9em;
+    padding-left: 1.4em;
+    /*margin-bottom: 10px;*/
+}
+
+#prep-list li::marker{
+    font-size: .75em;
+    vertical-align:middle;
+}
+
+#ingredients-list{
+    line-height: 1.9em;
+    padding:0px;
+    padding-left: 1.4em;
+    margin:0;
+    
+}
+
+#ingredients-list li{
+    padding-left: 1.4em;
+    
+}
+
+#ingredients-list li::marker{
+    font-size: .75em;
+    vertical-align:middle;
+}
+
+#instructions{
+    line-height: 1.5em;
+
+}
+
+#instructions li{
+    margin-bottom:10px
+}
+
+#instructions li::marker{
+    font-weight: 600;
+    color:hsl(14, 45%, 36%);
+}
+
+#table{
+    width:100%;
+    border-collapse: collapse;
+}
+
+/*
+.tr{
+    border-bottom: 1px solid;;
+    border-color:hsl(30, 18%, 87%);
+    margin:0px;
+    padding:0px;
+}
+    */
+
+td{
+    padding:10px 0;
+    vertical-align: middle;
+    border-bottom: 1px solid hsl(30, 18%, 87%);
+}
+
+td:first-child{
+    font-weight: normal;
+    padding-left: 2em;
+
+}
+
+td:last-child{
+    font-weight: 600;
+    color:hsl(14, 45%, 36%);
+    padding-left: 0px;
+}
+
+#table tr:last-child td{
+    border-bottom: none;
+}
+
+
+/* only take into effect if it's under 600 pixels for mobile devices */
+@media(max-width:375px){
+    .img{
+        margin:0;
+        padding:0;
+        width:100vw;
+        border-radius: 0;
+        display:block;
+    }
+
+    body{
+        margin:0;
+        padding:0
+    }
+}

@@ -1,158 +1,49 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CSS Cheat Sheet</title>
-        <link rel="stylesheet" type="text/css" href="CSS/style.css"> <!-- rel: tells html file that it's a stylesheet -->
+        <title>Joon's Website</title>
+        <link rel="stylesheet" type="text/css" href="CSS/website-style.css">
     </head>
+
     <body>
-        <div class="container">
-            <div class="box-1">
-                <h1>Hello World</h1>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe molestias expedita cumque tempore quam esse perferendis exercitationem laboriosam? Impedit architecto quidem voluptatem exercitationem dicta illum accusamus nam voluptatum et excepturi.
-                </p>
-        
-                <img src="Images/web_safe_fonts.png" href="Images/web_safe_fonts.png" target="_blank">
+        <header id="main-header">
+            <div class="container">
+                <h1>My Website</h1>
             </div>
-            <div class="box-2">
-                <h1>Goodbye World</h1>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe molestias expedita cumque tempore quam esse perferendis exercitationem laboriosam? Impedit architecto quidem voluptatem exercitationem dicta illum accusamus nam voluptatum et excepturi.
-                </p>
-                <a class="button" href="">Read More</a>
-        
-            </div>
-            <div class="categories">
-                <h2>categories</h2>
+        </header>
+        <nav id="navbar">
+            <div class="container">
                 <ul>
-                    <li><a href="#"">Category 1</a></li>
-                    <li><a href="#"">Category 2</a></li>
-                    <li><a href="#"">Category 3</a></li>
-                    <li><a href="#"">Category 4</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Parts</a></li>
+                    <li><a href="#">Equipment</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About</a></li>
                 </ul>
             </div>
+        </nav>
 
-            <form class="my-form">
-                <div class="form-group">
-                    <label>Name: </label>
-                    <input type="text" placeholder="Name" name="name">
-                </div>
-                <div class="form-group">
-                    <label>Email: </label>
-                    <input type="email" placeholder="Email" name="email">
-                </div>
-                <div class="form-group">
-                    <label>Message: </label>
-                    <textarea placeholder="Your Message" name="message"></textarea>
-                </div>
-                <input class="button" type="submit" value="Submit" name="">
-            </form>
-            <div class="block">
-                <h3>Heading</h3>
-                <p> HELLO WORLD Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta excepturi recusandae id eum, autem quisquam magni quam eos dolorum neque odio eligendi delectus esse nemo aliquam vero molestiae earum?
-                </p>
+        <section id="showcase">
+            <div class="container">
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita eaque et possimus id? 
+                </h1>
             </div>
-            <div class="block">
-                <h3>Heading</h3>
-                <p>SECOND BLOCK Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta excepturi recusandae id eum, autem quisquam magni quam eos dolorum neque odio eligendi delectus esse nemo aliquam vero molestiae earum?
-                </p>
-            </div>
-            <div class="block">
-                <h3>Heading</h3>
-                <p>GOODBYE WORLD Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta excepturi recusandae id eum, autem quisquam magni quam eos dolorum neque odio eligendi delectus esse nemo aliquam vero molestiae earum?
-                </p>
-            </div>
+        </section>
 
-            <div class="clr"></div>
-
-            <div id="main-block">
-                <h3>Heading</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta excepturi recusandae id eum, autem quisquam magni quam eos dolorum neque odio eligendi delectus esse nemo aliquam vero molestiae earum?
-                </p>
-            </div>
-            <div id="sidebar">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta excepturi recusandae id eum, autem quisquam magni quam eos dolorum neque odio eligendi delectus esse nemo aliquam vero molestiae earum?
-                </p>
-            </div>
+        <div class="container">
+            <section id="main">
+                <h1>Welcome</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam fuga ratione, obcaecati voluptates, neque ipsum eius quod similique minus alias officia totam quam laboriosam atque labore? Doloribus cumque repellat nam.</p>
+            </section>
+    
+            <aside id="sidebar">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nemo, dolor eveniet deserunt quasi beatae minima hic?</p>
+            </aside>
         </div>
-        <div style="margin-top:500px;"></div>
-    </body>
+
+        <footer id="main-footer">
+            <p>Copyright &copy 2025 Hugh-Dev</p>
+        </footer>
+
+    </body> 
 </html>
-
-<!--
-What is CSS?
-* Cascading Styleshets
-* Stylesheet/Styling language
-* Used for website layout and design
-* Can be extended with Sass/Less
-
-3 Methods for adding CSS
-* Inline CSS: Directly in the html element(NO!) Keep presentation, functionality, and style completely separate
-    <h1 style="color:red">Hello World</h1>
-* Internal CSS: Using <style> tags within a single document. Fattens up html file, and can't use it outside of the html file
-* External CSS: Linking an external .css file. Best, link file to whatever html file whenever.
-
-a { background-color: yellow; } 
-selector | property | value | declaration end
-{ = declaration start
-} = declaration end
-: = property/value separator
-; = declaration separator
-
-a = link. Doing this targets all links everywhere in the html file. To target a specific link,
-use classes or ids
-
-Colors In CSS
-* Color Names
-* HTML5 Color Names
-* Hexadecimal
-* RGB
-body{
-    color: red;
-    background: coral
-}
-
-h1 {
-    color: #00ff00;
-}
-
-p {
-    color: rgb(0,0,225);
-}
-
-class vs id:
-There is really no difference, but you want to think of ids as something you're not going to put anywhere else. They're unique for instance, a Nav Bar. However, for class="box-1" you might use elsewhere. If you want to make some text red, you can make that into a class because you might use it somewhere else.
-
-margin: space around an element outside of border
-padding: space around an element inside of border
-
-p{
-    margin-top:5px;
-    margin-bottom:5px;
-    margin-right:10px;
-    margin-left:10px;
-}
-
-p{
-    margin: 5px 10px 5px 10px; // top, right, bottom, left
-}
-
-p{
-    margin: 5px 10px // if top and bottom are same and left and right are same
-}
-
-p{
-    margin: 5px // if all equal 
-}
-
-SAME FOR PADDING
-
-
-Positioning in CSS
-* Static - default, renders element in order of document flow
-* Relative - relative to its normal position, falls naturally, add properties like top left right bottom and push to where we want
-* Absolute - target whatever position we want inside of a relative element
-* Fixed - a fixed position to the browser window. Now matter how much we scroll, where we are in the page, it will always be in the same position
-* Initial - set the property to its default value
-* Inherit - will inherit whatever the property of parent element
--->
