@@ -1,0 +1,76 @@
+@font-face {
+    font-family:Inter;
+    src: url(../../assets/fonts/Inter-VariableFont_slnt\,wght.ttf)
+}
+
+* {
+    margin:0px;
+    padding:0px;
+}
+
+body{
+    margin:5%;
+    padding:0px;
+    color: #fff;
+    background-color: hsl(0, 0%, 8%);
+    text-align: center;
+    font:14px Inter;
+}
+
+
+
+.container{
+    width:375px;
+    margin:auto;
+}
+
+.img {
+    border-radius: 100%;
+    width: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.box {
+    width:100%;
+    background-color: hsl(0, 0%, 12%);
+    border-radius: 3%;
+    padding:8% 0%;
+}
+
+ul {
+    width:100%;
+    margin:0px;
+    padding:0px;
+    list-style-type: none;
+}
+
+ul li{
+    line-height: 3rem;
+    background-color:hsl(0, 0%, 20%);
+    margin:10px auto;
+    margin-bottom: 15px;
+    width:80%;
+    height:10%;
+    /* border: 1px solid #fff; */
+    border-radius: 10px;
+    font-weight: 600;
+    
+}
+
+.name {
+    font-size:1.5rem;
+    margin-bottom: .5rem;
+}
+
+.location {
+    color:hsl(75, 94%, 57%);
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    margin-bottom: 1.5rem;
+}
+
+.attribution{
+    margin-top:10rem;
+}
