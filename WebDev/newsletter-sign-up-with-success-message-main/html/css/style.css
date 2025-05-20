@@ -1,0 +1,238 @@
+@font-face {
+    font-family: Roberto;
+    src: url(../../assets/fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: Roberto-Bold;
+    src: url(../../assets/fonts/Roboto-Bold.ttf);
+}
+
+* {
+    margin:0px;
+    padding:0px;
+}
+
+body {
+    font: 16px Roberto;
+    background-color: hsl(234, 29%, 20%)
+}
+
+.container {
+    width: 850px;
+    max-height: 100vh;
+    margin: auto;
+    padding:10%;
+    position: relative;
+    /* border: 1px solid #fff; */
+}
+
+
+#homeHeader {
+    margin-top:6rem;
+    margin-bottom: 2rem;
+    font-size: 52px;
+    font-family: Roberto-Bold;
+    color:hsl(235, 18%, 26%);
+}
+
+.box {
+    width:100%;
+    margin:auto;
+    padding:1rem;
+    
+    background-color: #fff;
+    border-radius: 25px;
+    display:flex;
+    /* border: 1px solid coral; */
+}
+
+#text {
+    text-align: left;
+    float:left;
+    width:55%;
+    margin-left:2.5rem;
+    margin-right: 1rem;
+    padding:0px;    
+    line-height: 1.6em;
+    /* box-sizing: border-box; */
+}
+
+.list {
+    margin: 1.3em 0 2.25em 1.75rem;
+    list-style-image: url(../../assets/images/icon-list.svg);
+}
+
+li {
+    vertical-align: middle;
+    line-height: 2.25em;
+    padding-left: 10px;
+    
+}
+
+.img {
+    float: right;
+    width: 45%;
+    box-sizing: border-box;
+    margin-right: 2.25rem;
+}
+
+label{
+    font-size: 12px;
+    color:hsl(235, 18%, 26%);
+    font-weight: 700 !important;
+}
+
+.form {
+    width:90%;
+    margin-right:2rem;
+    /* border:1px solid lightgreen; */
+    box-sizing: border-box;
+}
+
+#errorMsg {
+    color: hsl(4, 100%, 67%);
+    font-size: 12px;
+    float:right;
+    display: none;
+}
+
+input {
+    width:100%;
+    margin-top: .4em;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border:2px solid hsl(0, 0%,58%);
+    outline-color:hsl(0, 0%,58%);
+    /* border: 1px solid lightgreen; */
+}
+
+button {
+    width:100%;
+    padding:1em;
+    box-sizing: border-box;
+    background-color: hsl(235, 18%, 26%);
+    text-align: middle;
+    color:#fff;
+    border-radius: 8px;
+}
+
+#homePage {
+    display: block;
+}
+
+#confirmPage {
+    display: none;
+}
+
+#emailValue {
+    font-weight: 700;
+}
+
+.confirmBox {
+    margin:auto;
+    background-color: #fff;
+    width:40%;
+    padding:3rem;
+    border-radius: 25px;
+}
+
+#favcon {
+    margin:0px;
+    margin-bottom:2rem;
+    padding:0px;
+}
+
+#confirmHeader {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.msg {
+    margin-bottom:2.5rem;
+}
+
+/* only take into effect if browser is under 375 pixels */
+@media(max-width:375px) {
+
+    * {
+        margin:0px;
+        padding:0px;
+    }
+
+    .container {
+        width:100%;
+        margin:0px;
+        padding:0px;
+        /* border:1px solid pink; */
+    }
+
+    .box {
+        flex-direction: column;
+        width:100vw;
+        height:100%;
+        border-radius: 0;
+        padding:0px;
+        margin:auto;
+        /* border: 1px solid red; */
+    }
+
+    #homeHeader {
+        font-size: 40px;
+        margin:2rem auto;
+    }
+
+    .picture {
+        width: 100%;
+        order: -1; /* Moves it to top */
+    }
+          
+    .picture img {
+        width: 100%;
+        border-radius: 0;
+        /* border:1px solid lightblue; */
+    }
+
+    .list {
+        margin: 1.3em 1.75rem 2.25em 1.75rem;
+    }
+
+    #text {
+        float:left;
+        width: 100%;
+        margin:auto;
+        padding-left:20px;
+        padding-right: 20px;
+        line-height: 1.6em;
+        box-sizing: border-box;
+
+    }
+
+    li {
+        line-height: 1.6em;
+    }
+    
+    .form {
+        width:100%;
+        margin:0px;
+        margin-bottom: 2rem;
+        /* border:1px solid red; */
+    }
+
+    .inputEmail {
+        width:100%;
+    }
+
+    .confirmBox {
+        width:100%;
+        height:100vh;
+        border-radius: 0;
+        margin:auto;
+        padding-top:30%;
+        box-sizing: border-box;
+    }
+          
+}

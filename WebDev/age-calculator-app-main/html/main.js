@@ -1,4 +1,4 @@
-DEBUG = 0;
+const DEBUG = 0;
 
 let validYear;
 
@@ -49,12 +49,13 @@ submit.addEventListener('click', (e) => {
         invalidDay();
     }
 
-    if (validYear) {
+    if (validDate) {
         const birthDay = new Date(year.value, month.value - 1, day.value);
 
         let resYear = date.getFullYear() - birthDay.getFullYear();
         let resMonth = 0;
         date.getMonth() > birthDay.getMonth() ? (resMonth = date.getMonth() - birthDay.getMonth() - 1) : (resYear--, resMonth = 12 - (birthDay.getMonth() - date.getMonth()));
+        const resDay = 31 - Math.abs(date.getDate() - day.value) - 1;
         if (DEBUG) {
             console.log("DATE.GETMONTH()", date.getMonth());
             console.log("BIRTHDAY.GETMONTH()", birthDay.getMonth());
@@ -62,23 +63,15 @@ submit.addEventListener('click', (e) => {
             console.log("MONTH", resMonth);
             console.log("date.now", Date.now());
             console.log("birthDay", birthDay.getTime());
-            console.log("AGE", age.getUTCFullYear() - 1970);
             console.log("RESULT", resYear, resMonth, resDay);
             console.log(typeof year.value);
             console.log("year, month, day", year.value, month.value, day.value);
         }
-
-        if (validDate) {
-            const resDay = 31 - Math.abs(date.getDate() - day.value) - 1;
-            const diff_ms = Date.now() - birthDay.getTime();
-            const age = new Date(diff_ms);
-    
         
+        document.querySelector('#year').innerHTML = `${resYear}`;
+        document.querySelector('#month').innerHTML = `${resMonth}`;
+        document.querySelector('#day').innerHTML = `${resDay}`;
         
-            document.querySelector('#year').innerHTML = `${resYear}`;
-            document.querySelector('#month').innerHTML = `${resMonth}`;
-            document.querySelector('#day').innerHTML = `${resDay}`;
-        } 
     }
 
 });
