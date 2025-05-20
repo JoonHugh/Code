@@ -74,4 +74,6 @@ submit.addEventListener('click', (e) => {
         
     }
 
+    // not responsive yet
+
 });
