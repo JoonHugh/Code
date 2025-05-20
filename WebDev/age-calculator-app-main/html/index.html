@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form class="form">
+      <section>
+        <label for="day">Day</label>
+        <input id="inputDay" placeholder="DD"  type="number">
+      </section>
+      <section>
+        <label for="month">Month</label>
+        <input id="inputMonth" placeholder="MM" type="number">
+      </section>
+      <section>
+        <label for="year">Year</label>
+        <input id="inputYear" placeholder="YYYY" type="number">
+      </section>
+      <br>
+      <br>
+    </form>
+    <hr>
+    <button id="submit" type="submit" >
+      <img id="img" src="../assets/images/icon-arrow.svg">
+    </button>
+  
+  
+    <header>
+      <h1><p id="year">--</p>years</h1>
+      <h1><p id="month">--</p>months</h1>
+      <h1><p id="day">--</p>days</h1>
+    </header>
+  </div>
+
+
+
+  
+  <div class="attribution">
+    Coded by <a href="https://hugh-dev.com">Joon Hugh</a>.
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

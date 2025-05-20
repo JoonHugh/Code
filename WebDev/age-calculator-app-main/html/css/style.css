@@ -1,0 +1,143 @@
+@font-face {
+    font-family: Poppins-Bold;
+    src: url(../../assets/fonts/Poppins-Bold.ttf);
+}
+@font-face {
+    font-family: Poppins-BoldItalic;
+    src: url(../../assets/fonts/Poppins-BoldItalic.ttf);
+}
+@font-face {
+    font-family: Poppins-ExtraBold;
+    src: url(../../assets/fonts/Poppins-ExtraBold.ttf);
+}
+@font-face {
+    font-family: Poppins-ExtraBoldItalic;
+    src: url(../../assets/fonts/Poppins-ExtraBoldItalic.ttf);
+}
+@font-face {
+    font-family: Poppins-Italic;
+    src: url(../../assets/fonts/Poppins-Italic.ttf);
+}
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(../../assets/fonts/Poppins-Regular.ttf);
+}
+
+* {
+    margin:0px;
+    padding:0px;
+}
+
+body {
+    font-family: Poppins-Regular;
+    background-color: hsl(0, 0%, 94%);
+}
+
+.container {
+    max-width:700px;
+    height:fit-content;
+    margin: 10rem auto;
+    padding:2rem;
+    background-color: hsl(0, 100%, 100%);
+    border-radius: 5%;
+    border-bottom-right-radius: 25%;
+    position:relative;
+}
+
+.form {
+    width:100%;
+    height: fit-content;
+    padding-bottom: 4rem;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+    border-bottom: 1px solid hsl(0, 0%, 94%);
+}
+
+section {
+    float:left;
+    width:20%;
+    margin-right: 2.5rem;
+    /* box-sizing: border-box; */
+
+}
+
+label {
+    font-family: Poppins-Bold;
+    color: hsl(0, 1%, 44%);
+    letter-spacing: .25em;
+    text-transform: uppercase;
+}
+
+input {
+    display:block;
+    width:9rem;
+    padding:.2em 0 .2em .5em;
+    box-sizing: border-box;
+    font-family: Poppins-Bold;
+    font-size: 32px;
+    border:2px solid hsl(0, 0%, 86%);
+    outline: 0px solid hsl(0, 0%, 86%);
+    border-radius: 5px;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin:0;
+}
+
+input:target {
+    outline: 0px solid hsl(0, 0%, 86%);
+}
+
+input:focus {
+    border-color: hsl(0, 1%, 44%);
+}
+
+button {
+    display:block;
+    float:right;
+    width:5rem;
+    height:5rem;
+    position:absolute;
+    top:17.5%;
+    right: 2rem;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: hsl(259, 100%, 65%);
+}
+
+button:hover {
+    background-color: hsl(0, 0%, 0%);
+}
+
+button:active {
+    background-color: hsl(259, 100%, 65%);
+}
+
+#img {
+    /* margin:auto; */
+    width:50%;
+    padding:10px;
+
+}
+
+header {
+    margin:2rem 0rem;
+    display:block;
+    font-family:Poppins-ExtraBoldItalic;
+    font-size:40px;
+}
+
+p {
+    display:inline;
+    letter-spacing: .25rem;
+    color: hsl(259, 100%, 65%);
+}
+
+h1 {
+    display:block;
+
+}
+
