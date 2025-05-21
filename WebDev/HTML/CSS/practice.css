@@ -1,0 +1,46 @@
+body {
+    margin:0;
+    padding:0;
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    width:70%;
+    height: 100vh;
+    margin: auto;
+    border:1px solid pink;
+}
+
+.buttonGroup {
+    margin:auto;
+    width:50%;
+    border:1px solid green;
+}
+
+
+.button {
+    width:30%;
+    margin:0;
+    padding:20px;
+    border-radius: 0px;
+    background-color: gray;
+}
+
+.button:not(:active) {
+    background-color: darkgray;
+}
+
+.button:not(:last-child) {
+    border-right:0px;
+}
+
+.button:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.button:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
