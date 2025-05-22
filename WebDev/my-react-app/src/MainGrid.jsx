@@ -1,5 +1,6 @@
 
 import React, {useState} from 'react';
+import questionIcon from './assets/question-icon.png';
 
 function MainGrid() {
 
@@ -36,16 +37,36 @@ function MainGrid() {
             <div className="middle-column">
                 <h2>Modes & ISA</h2>
                 <div className="core-count">
-                    <label>
-                        Total Number of Cores
-                        <input type="range" min="1" max="4" step="1" list="steplist" />
-                    </label>
-                    <datalist id="steplist">
-                        <option value="1"/>
-                        <option value="2"/>
-                        <option value="3"/>
-                        <option value="4"/>
-                    </datalist>
+                    <div className="tab-section">
+                        <label>
+                            <span>Total Number of Cores</span>
+                            <img src={questionIcon} className="tab-section-question-icon"></img>
+                            <input className="tab-section-input" type="range" min="1" max="4" step="1" list="steplist" />
+                        </label>
+                        <datalist id="steplist">
+                            <option value="1"/>
+                            <option value="2"/>
+                            <option value="3"/>
+                            <option value="4"/>
+                        </datalist>
+                    </div> {/* tab section */}
+                    <div className="tab-section">
+                            <span>Privilege Modes</span>
+                            <label className="tab-section-label">Machine Mode
+                                <input className="tab-section-checkbox" type="checkbox"></input>
+                                <span className="checkmark"></span>
+                            </label>
+                            <label className="tab-section-label">User Mode
+                                <input className="tab-section-checkbox" type="checkbox"></input>
+                                <span className="checkmark"></span>
+                            </label>
+                    </div> {/* tab section */}
+                    <div className="tab-section">
+                        
+                    </div> {/* tab section */}
+                    <div className="tab-section">
+
+                    </div> {/* tab section */}
                 </div>
             </div>
             <div className="right-column">
