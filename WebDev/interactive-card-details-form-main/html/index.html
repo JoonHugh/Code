@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div id="grid">
+    <div>
+        <img id="background-image" src="../images/bg-main-desktop.png">
+        <div id="card-front">
+          <img id="card-back-image" src="../images/bg-card-front.png">
+          0000 0000 0000 0000
+          Jane Appleseed
+        </div>
+        <div id="card-back">
+          <img id="card-back-image" src="../images/bg-card-back.png">
+    
+          00/00
+        
+          000  
+        </div>
+    </div>
+    <div>
+      <div class="container">
+        <form>
+          <label id="name">
+            Cardholder Name
+            <input type="text" onkeydown="return /[a-z]/i.test(event.key)" placeholder="e.g. Jane Appleseed" required>
+          </label>
+          <label id="card-number">
+            Card Number
+            <input type="number" maxlength="16" placeholder="e.g. 1234 5678 9123 0000" required>
+          </label>
+          <label id="expiry">
+            <div id="parent-grid">
+              <div>Exp. Date (MM/YY)</div>
+              <div>CVC</div>
+
+            </div>
+            <div id="child-grid">
+
+              <div id="expiry-inputs">
+                <input type="number" placeholder="MM" required><input type="number" placeholder="YY" required>
+              </div>
+
+              <label id="cvc">
+                <input type="number" placeholder="e.g. 123">
+              </label>
+
+            </div>
+          </label>
+          <input id="confirm-button" type="submit" value="Confirm">
+        </form>
+      </div>
+    </div>
+  
+  
+  
+    <!-- Completed state start -->
+  
+    <!-- Thank you!
+    We've added your card details
+    Continue
+    
+    <div class="attribution">
+      Coded by Joon Hugh.
+    </div> -->
+  </div>
+</body>
+</html>
