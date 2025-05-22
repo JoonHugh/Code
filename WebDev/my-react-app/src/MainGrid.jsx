@@ -14,6 +14,7 @@ function MainGrid() {
     const tabItems = tabs.map(tab => <li key={tab.name} className="generic-styled-tab">{tab.name}</li>)
 
     const [tab, setTab] = useState();
+    // const []
 
     const handleClick = (e) => {
         const siblings = e.target.parentElement.children;
@@ -36,38 +37,62 @@ function MainGrid() {
             </div>
             <div className="middle-column">
                 <h2>Modes & ISA</h2>
-                <div className="core-count">
-                    <div className="tab-section">
-                        <label>
-                            <span>Total Number of Cores</span>
-                            <img src={questionIcon} className="tab-section-question-icon"></img>
-                            <input className="tab-section-input" type="range" min="1" max="4" step="1" list="steplist" />
-                        </label>
-                        <datalist id="steplist">
-                            <option value="1"/>
-                            <option value="2"/>
-                            <option value="3"/>
-                            <option value="4"/>
-                        </datalist>
-                    </div> {/* tab section */}
-                    <div className="tab-section">
-                            <span>Privilege Modes</span>
-                            <label className="tab-section-label">Machine Mode
-                                <input className="tab-section-checkbox" type="checkbox"></input>
-                                <span className="checkmark"></span>
-                            </label>
-                            <label className="tab-section-label">User Mode
-                                <input className="tab-section-checkbox" type="checkbox"></input>
-                                <span className="checkmark"></span>
-                            </label>
-                    </div> {/* tab section */}
-                    <div className="tab-section">
-                        
-                    </div> {/* tab section */}
-                    <div className="tab-section">
+                <div className="tab-section">
+                    <label>
+                        <span>Total Number of Cores</span>
+                        <img src={questionIcon} className="tab-section-question-icon"></img>
+                        <input className="tab-section-input" type="range" min="1" max="4" step="1" list="steplist" />
+                    </label>
+                    <datalist id="steplist">
+                        <option value="1"/>
+                        <option value="2"/>
+                        <option value="3"/>
+                        <option value="4"/>
+                    </datalist>
+                    <div className="ticks">
+                        <div className="tick"></div>
+                        <div className="tick"></div>
+                        <div className="tick"></div>
+                        {/* One less tick div than number of steps */}
+                    </div>
+                </div> {/* tab section */}
+                <div className="tab-section">
+                    <span>Privilege Modes</span>
+                    <label className="tab-section-label" id="disabled" disabled>Machine Mode
+                        <input className="tab-section-checkbox" type="checkbox" checked disabled></input>
+                        <span className="checkmark"></span>
+                    </label>
+                    <label className="tab-section-label">User Mode
+                        <input className="tab-section-checkbox" type="checkbox"></input>
+                        <span className="checkmark"></span>
+                    </label>
+                </div> {/* tab section */}
+                <div className="tab-section">
+                    <span>Base ISA</span>
+                    <div class="buttonGroup">
+                        <button class="button" value="RV32I">RV32I</button><button class="button" value="RV32E">RV32E</button>
+                    </div>
+                </div> {/* tab section */}
+                <div className="tab-section">
+                    <span>ISA Extensions</span>
+                    <label className="tab-section-label"> Code density extensions
+                        <input className="tab-section-checkbox" type="checkbox"></input>
+                        <span className="checkmark"></span>
+                    </label>
+                    <label className="tab-section-label"> Multiply (M Extension)
+                        <input className="tab-section-checkbox" type="checkbox"></input>
+                        <span className="checkmark"></span>
+                    </label>
+                    <div>
 
-                    </div> {/* tab section */}
-                </div>
+                    </div>
+                    <span>Floating Point</span> 
+                    <img src={questionIcon} className="tab-section-question-icon"></img>
+                    <div class="buttonGroup">
+                        <button class="button" value="No-FP">No FP</button><button class="button" value="Single-FP">Single FP (F)</button><button class="button" value="Double-FP">Double FP (F & D)</button>
+                    </div>
+                </div> {/* tab section */}
+            {/* </div> */}
             </div>
             <div className="right-column">
                 <div className="box">
