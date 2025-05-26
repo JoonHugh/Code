@@ -17,66 +17,102 @@
 </head>
 <body>
   <div id="grid">
-    <div>
-        <img id="background-image" src="../images/bg-main-desktop.png">
-        <div id="card-front">
-          <img id="card-back-image" src="../images/bg-card-front.png">
-          0000 0000 0000 0000
-          Jane Appleseed
-        </div>
-        <div id="card-back">
-          <img id="card-back-image" src="../images/bg-card-back.png">
-    
-          00/00
-        
-          000  
+    <div class="images">
+      <img id="background-image" src="../images/bg-main-desktop.png">
+      <div id="cards">
+          <div id="card-front">
+            <img id="card-front-image" src="../images/bg-card-front.png">
+            <img id="logo" src="../images/card-logo.svg">
+            <div class="text-container">
+              <span id="front-info-numbers" value="">0000 0000 0000 0000</span>  
+              <span id="front-card-name">Jane Appleseed</span>
+              <span id="front-card-expiry">00/00</span>
+            </div>
+          </div>
+          <div id="card-back">
+            <img id="card-back-image" src="../images/bg-card-back.png">
+              <span id="back-info">000</span>
+          </div>
         </div>
     </div>
-    <div>
       <div class="container">
-        <form>
+        <form id="card-info">
           <label id="name">
             Cardholder Name
-            <input type="text" onkeydown="return /[a-z]/i.test(event.key)" placeholder="e.g. Jane Appleseed" required>
+            <input 
+              id="name-text"
+              type="text" 
+              onkeydown="return /[a-z ]/i.test(event.key)" 
+              placeholder="e.g. Jane Appleseed" 
+              onkeyup="displayccName()"
+              required
+            >
           </label>
-          <label id="card-number">
+          <label>
             Card Number
-            <input type="number" maxlength="16" placeholder="e.g. 1234 5678 9123 0000" required>
+            <input 
+              id="card-number" 
+              type="number" 
+              maxlength="16" 
+              placeholder="e.g. 1234 5678 9123 0000" 
+              onkeyup="displayccNumber()"
+              value="0000 0000 0000 0000"
+              required
+            >
           </label>
           <label id="expiry">
             <div id="parent-grid">
               <div>Exp. Date (MM/YY)</div>
-              <div>CVC</div>
-
+              <div id="cvc-text">CVC</div>
             </div>
             <div id="child-grid">
 
               <div id="expiry-inputs">
-                <input type="number" placeholder="MM" required><input type="number" placeholder="YY" required>
+                <input 
+                  id="card-month" 
+                  type="number" 
+                  maxlength="2"
+                  placeholder="MM" 
+                  onkeyup="displayccExpiry()"
+                  required
+                ><input 
+                  id="card-year" 
+                  type="number" 
+                  maxlength="2"
+                  placeholder="YY" 
+                  onkeyup="displayccExpiry()"
+                  required
+                > 
               </div>
 
               <label id="cvc">
-                <input type="number" placeholder="e.g. 123">
+                <input 
+                id="cvc-number" 
+                type="number"
+                maxlength="3"
+                placeholder="e.g. 123" 
+                onkeyup="displayccCVC()"
+                required>
               </label>
 
             </div>
           </label>
-          <input id="confirm-button" type="submit" value="Confirm">
+          <input class="button" type="submit" value="Confirm">
         </form>
+        <div id="thank-you-page">
+          <img id="check" src="../images/icon-complete.svg">
+          <h2>Thank you!</h2>
+          <p>We've added your card details</p>
+          <button class="button" onclick="displayInputPage()">Continue</button>
+        </div>
       </div>
-    </div>
   
   
   
-    <!-- Completed state start -->
-  
-    <!-- Thank you!
-    We've added your card details
-    Continue
-    
-    <div class="attribution">
-      Coded by Joon Hugh.
-    </div> -->
+    <div id="attribution">
+      <p>Coded by Joon Hugh.</p>
+    </div> 
   </div>
+  <script src="main.js"></script>
 </body>
 </html>
