@@ -84,6 +84,32 @@ function displayInputPage() {
     setDefault();
 }
 
+function downloadJSON(obj, filename) {
+    // turn object into JSON string
+    const jsonString = JSON.stringify(obj, null, 2);
+
+    // create a blob containing json of mime-type application/json
+    const blob = new Blob([jsonString], { type:'application/json' });
+
+    // create an object URL from that block
+    const url = URL.createObjectURL(blob);
+
+    // Create a temp <a> tag w/ download attribute
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+
+    // Programmatically click <a> to open the "Save As" dialogue
+    document.body.appendChild(a);
+    a.click();
+
+    // Cleanup: revoke object url and remove <a> tag
+    setTimeout(() => {
+        URL.revokeObjectURL(url);
+        a.remove();
+    }, 0)
+}
+
 const myForm = addEventListener("submit", onSubmit);
 
 function onSubmit(e) {
@@ -97,21 +123,23 @@ function onSubmit(e) {
         "cvc" : ccCvc.value
     };
 
-    fetch('/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dataObject),
-    })
-        .then(res => {
-            if (!res.ok) throw new Error('Network response was not ok');
-            return res.json();
-        })
-        .then(json => {
-            console.log('Saved successfully:', json);
-        })
-        .catch(err => {
-            console.error('Error saving data:', err);
-        });
+    downloadJSON(dataObject, 'data/cc.json');
+
+    // fetch('/save', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(dataObject),
+    // })
+    //     .then(res => {
+    //         if (!res.ok) throw new Error('Network response was not ok');
+    //         return res.json();
+    //     })
+    //     .then(json => {
+    //         console.log('Saved successfully:', json);
+    //     })
+    //     .catch(err => {
+    //         console.error('Error saving data:', err);
+    //     });
     
 
     console.log(dataObject);
