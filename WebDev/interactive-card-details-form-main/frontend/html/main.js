@@ -70,22 +70,16 @@ function displayccCVC(e) {
 }
 
 async function confirm() {
+
     const formData = new FormData(ccInputPage);
+
     const name = formData.get('name');
     const number = formData.get('number');
-    const month = formData.get('month');
-    const year = formData.get('year');
+    const month = padZero(formData.get('month'));
+    const year = padZero(formData.get('year'));
     const cvc = formData.get('cvc');
 
     if (DEBUG) console.log("HELLO WORLD THIS WORKED", name, number, month, year, cvc);
-    
-    const dataObject = {
-        "name" : ccName.value, 
-        "number" : ccNumber.value, 
-        "month" : ccMonth.value, 
-        "year" : ccYear.value, 
-        "cvc" : ccCvc.value
-    };
 
     try {
         const res = await fetch("http://localhost:5000/user", {
@@ -93,7 +87,7 @@ async function confirm() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name, number, month, year, cvc})
+            body: JSON.stringify({ name, number, month, year, cvc })
         });
 
         if (!res.ok) {
@@ -179,6 +173,7 @@ function onSubmit(e) {
     if (DEBUG) console.log(validNumber, validExpiry, validCvc)
     if (validNumber && validExpiry && validCvc) { 
         confirm();
+        console.log("Thank you, recorded!");
     } else {
         console.log("Must enter valid inputs");
     }
