@@ -37,23 +37,23 @@ function displayccNumber(e) {
         let chunks = ccNumber.value.match(/.{1,4}/g || []);
         let formattedValue = chunks.join(' ');
         document.querySelector("#front-info-numbers").innerHTML = `${formattedValue}`
-        console.log("Valid card number");
         validNumber = true;
+        console.log("Valid card number");
     } else {
-        console.log("Must be a valid card number");
         validNumber = false;
+        console.log("Must be a valid card number");
     }
     
 }
 
 function displayccExpiry(e) {
     if ((ccMonth.value <= 12 && ccMonth.value > 0) && ccYear.value.length <= 2) {
-        console.log("valid expiry date");
         document.querySelector("#front-card-expiry").innerHTML = `${padZero(ccMonth.value)}/${padZero(ccYear.value)}`;
         validExpiry = true;
+        console.log("valid expiry date");
     } else {
-        console.log("Must be a valid expiry date");
         validExpiry = false;
+        console.log("Must be a valid expiry date");
     }
     
 }
@@ -61,11 +61,11 @@ function displayccExpiry(e) {
 function displayccCVC(e) {
     if (ccCvc.value.length <= 3) {
         document.querySelector("#back-info").innerHTML = `${ccCvc.value}`
-        console.log("Valid CVC number");
         validCvc = true;
+        console.log("Valid CVC number");
     } else {
-        console.log("Must be a valid CVC number");
         validCvc = false;
+        console.log("Must be a valid CVC number");
     }
 }
 
@@ -175,8 +175,12 @@ function onSubmit(e) {
     //         console.error('Error saving data:', err);
     //     });
     
-    console.log(ccInformation);
-    console.log(validNumber, validExpiry, validCvc)
-    if (validNumber && validExpiry && validCvc) confirm();
+    if (DEBUG) console.log(ccInformation);
+    if (DEBUG) console.log(validNumber, validExpiry, validCvc)
+    if (validNumber && validExpiry && validCvc) { 
+        confirm();
+    } else {
+        console.log("Must enter valid inputs");
+    }
 
 }
