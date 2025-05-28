@@ -19,13 +19,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 console.log(__filename, __dirname);
 
+
 app.use(express.static(path.join(__dirname, 'html')));
 app.use(
     '/images',
     express.static(path.join(__dirname, 'images'))
 );
 
-app.use('/', routes);
+app.use('/user/', routes);
 
 
 app.listen(PORT, () => {

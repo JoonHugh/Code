@@ -2,6 +2,10 @@ const DEBUG = 0;
 
 let ccInformation = []
 
+let validNumber;
+let validExpiry;
+let validCvc;
+
 const ccInputPage = document.querySelector("#card-info");
 const thankYouPage = document.querySelector("#thank-you-page");
 
@@ -34,8 +38,10 @@ function displayccNumber(e) {
         let formattedValue = chunks.join(' ');
         document.querySelector("#front-info-numbers").innerHTML = `${formattedValue}`
         console.log("Valid card number");
+        validNumber = true;
     } else {
         console.log("Must be a valid card number");
+        validNumber = false;
     }
     
 }
@@ -44,9 +50,10 @@ function displayccExpiry(e) {
     if ((ccMonth.value <= 12 && ccMonth.value > 0) && ccYear.value.length <= 2) {
         console.log("valid expiry date");
         document.querySelector("#front-card-expiry").innerHTML = `${padZero(ccMonth.value)}/${padZero(ccYear.value)}`;
-        
+        validExpiry = true;
     } else {
         console.log("Must be a valid expiry date");
+        validExpiry = false;
     }
     
 }
@@ -55,12 +62,47 @@ function displayccCVC(e) {
     if (ccCvc.value.length <= 3) {
         document.querySelector("#back-info").innerHTML = `${ccCvc.value}`
         console.log("Valid CVC number");
+        validCvc = true;
     } else {
         console.log("Must be a valid CVC number");
+        validCvc = false;
     }
 }
 
-function confirm() {
+async function confirm() {
+    const formData = new FormData(ccInputPage);
+    const name = formData.get('name');
+    const number = formData.get('number');
+    const month = formData.get('month');
+    const year = formData.get('year');
+    const cvc = formData.get('cvc');
+
+    if (DEBUG) console.log("HELLO WORLD THIS WORKED", name, number, month, year, cvc);
+    
+    const dataObject = {
+        "name" : ccName.value, 
+        "number" : ccNumber.value, 
+        "month" : ccMonth.value, 
+        "year" : ccYear.value, 
+        "cvc" : ccCvc.value
+    };
+
+    try {
+        const res = await fetch("http://localhost:5000/user", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name, number, month, year, cvc})
+        });
+
+        if (!res.ok) {
+            throw new Error('Failed to send cc information');
+        }
+    } catch (error) {
+        console.log('Error creating entry', error);
+    }
+
     thankYouPage.style.display = "grid";
     ccInputPage.style.display = "none";
 }
@@ -114,16 +156,8 @@ const myForm = addEventListener("submit", onSubmit);
 
 function onSubmit(e) {
     e.preventDefault();
-    
-    const dataObject = {
-        "name" : ccName.value, 
-        "number" : ccNumber.value, 
-        "month" : ccMonth.value, 
-        "year" : ccYear.value, 
-        "cvc" : ccCvc.value
-    };
 
-    downloadJSON(dataObject, 'data/cc.json');
+    // downloadJSON(dataObject, 'data/cc.json');
 
     // fetch('/save', {
     //     method: 'POST',
@@ -141,12 +175,8 @@ function onSubmit(e) {
     //         console.error('Error saving data:', err);
     //     });
     
-
-    console.log(dataObject);
-    
-    ccInformation.push(dataObject);
     console.log(ccInformation);
-
-    confirm();
+    console.log(validNumber, validExpiry, validCvc)
+    if (validNumber && validExpiry && validCvc) confirm();
 
 }

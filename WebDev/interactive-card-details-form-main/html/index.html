@@ -41,6 +41,7 @@
             Cardholder Name
             <input 
               id="name-text"
+              name="name"
               type="text" 
               onkeydown="return /[a-z ]/i.test(event.key)" 
               placeholder="e.g. Jane Appleseed" 
@@ -52,6 +53,7 @@
             Card Number
             <input 
               id="card-number" 
+              name="number"
               type="number" 
               maxlength="16" 
               placeholder="e.g. 1234 5678 9123 0000" 
@@ -70,6 +72,7 @@
               <div id="expiry-inputs">
                 <input 
                   id="card-month" 
+                  name="month"
                   type="number" 
                   maxlength="2"
                   placeholder="MM" 
@@ -77,6 +80,7 @@
                   required
                 ><input 
                   id="card-year" 
+                  name="year"
                   type="number" 
                   maxlength="2"
                   placeholder="YY" 
@@ -88,6 +92,7 @@
               <label id="cvc">
                 <input 
                 id="cvc-number" 
+                name="cvc"
                 type="number"
                 maxlength="3"
                 placeholder="e.g. 123" 
